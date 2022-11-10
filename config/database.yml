@@ -12,9 +12,12 @@ test:
   database: bbq_test_work_test
 
 production:
-  adapter: postgresql
-  host: localhost
-  port: 5432
-  database: <%= Rails.application.credentials.dig(:user_bbq, :DATABASE) %>
-  user: <%= Rails.application.credentials.dig(:user_bbq, :NAME) %>
-  password: <%= Rails.application.credentials.dig(:user_bbq, :PASSWORD) %>
+  <<: *default
+  # adapter: postgresql
+  # host: localhost
+  # port: 5432
+  # database: <%= Rails.application.credentials.dig(:user_bbq, :DATABASE) %>
+  # user: <%= Rails.application.credentials.dig(:user_bbq, :NAME) %>
+  # password: <%= Rails.application.credentials.dig(:user_bbq, :PASSWORD) %>
+  url: <%= Rails.application.credentials.dig(:user_bbq, :DATABASE_URL) %>
+  
